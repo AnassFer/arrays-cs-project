@@ -5,8 +5,6 @@ import java.util.Comparator;
 
 public class ManageStudent {
 
-    Student[] students = {new Student(1,"Anass"), new Student(2, "Douae", 20), new Student(3, "Ilyass",25, 17), new Student(4, "Amine", 31, 19), new Student(5, "Imane")};
-
     // 2) Find the Oldest Student
     public static Student findOldest(Student[] students) {
         Student oldest = students[0];
@@ -77,7 +75,7 @@ public class ManageStudent {
 
         for(Student student1 : students){
             for (Student student2 : students){
-                if(student1.getName().equalsIgnoreCase(student2.getName())) return true
+                if(student1.getName().equalsIgnoreCase(student2.getName())) return true;
             }
         }
         return false;
@@ -94,6 +92,7 @@ public class ManageStudent {
     // 1) Create an Array of Students + demos for all tasks
     public static void main(String[] args) {
         // Create & initialize array of 5 students
+        Student[] arr = {new Student(1,"Anass"), new Student(2, "Douae", 20), new Student(3, "Ilyass",25, 17), new Student(4, "Dina", 31, 12), new Student(5, "Imane")};
 
 
         // Print all
@@ -102,18 +101,19 @@ public class ManageStudent {
         System.out.println("Total created: " + Student.getNumStudent());
 
         // 2) Oldest
-
+        System.out.println(findOldest(arr).getName());
 
         // 3) Count adults
-
+        System.out.println(countAdults(arr));
 
         // 4) Average grade
-
+        System.out.println(averageGrade(arr));
 
         // 5) Find by name
-
+        System.out.println(findStudentByName(arr, "Anass"));
 
         // 6) Sort by grade desc
+        sortByGradeDesc(arr);
         // sort function
         System.out.println("\n== Sorted by grade (desc) ==");
         for (Student s : arr) System.out.println(s);
@@ -123,14 +123,20 @@ public class ManageStudent {
         printHighAchievers(arr);
 
         // 8) Update grade by id
+        boolean updated = updateGrade(arr,4,19);
         // function
         System.out.println("\nUpdated id=4? " + updated);
         System.out.println(findStudentByName(arr, "Dina"));
 
         // 9) Duplicate names
-
+        if(hasDuplicateNames(arr)) System.out.println("Duplicates found.");
+        else System.out.println("No duplicates found.");
 
         // 10) Append new student
+        Student[] newArr = appendStudent(arr,new Student(6,"Hamid"));
+        for (Student student : newArr){
+            System.out.println(student.getName());
+        }
 
     }
 }
