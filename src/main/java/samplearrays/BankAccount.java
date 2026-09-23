@@ -50,6 +50,7 @@ public class BankAccount {
     public void displayTransactions(){
         System.out.println("Account Transactions :");
         for(double transaction:transactions){
+            if(transaction == 0) return;
             System.out.println("Transaction : " + transaction);
         }
     }

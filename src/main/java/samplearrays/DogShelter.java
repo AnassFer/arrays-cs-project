@@ -43,7 +43,7 @@ public class DogShelter {
     public static void displayDogs() {
         // add your code
         for (int i = 0; i < dogCounts.length; i++) {
-            System.out.println("Breed " + i + " has " + dogCounts[i] + " dogs.");
+            System.out.println("Breed " + (i+1) + " has " + dogCounts[i] + " dogs.");
         }
 
     }
